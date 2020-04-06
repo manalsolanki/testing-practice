@@ -1,10 +1,11 @@
 // ==================================================
 // DEFINE FUNCTION(S)
 // ==================================================
-function product() {
-
+function product(num1, num2) {
+  if (num1 == undefined) num1 = 0;
+  if (num2 == undefined) num2 = 1;
+  return Number(num1) * Number(num2);
 }
-
 // ==================================================
 // DEFINE AND EXECUTE TEST CASES
 // ==================================================
@@ -20,21 +21,36 @@ try {
   // Test Case 2
   // --------------------------------------------------
   // It should return 0 when either of the numbers are 0.
-
+  var result = product(2, 0);
+  if (result !== 0) throw new Error('Expected product(2, 0) to be 0. Received: ' + result);
   // --------------------------------------------------
   // Test Case 3
   // --------------------------------------------------
   // It should ignore additional numbers.
+  var result = product(2, 2, 1, 1, 1, 1, 2);
+  if (result !== 4) throw new Error('Expected product(2, 2, 1, 1, 1, 1, 2) to be 4. Received: ' + result);
 
   // --------------------------------------------------
   // Test Case 4
   // --------------------------------------------------
   // When invoked with only 1 number, it should return that number.
+  var result = product (1);
+  if (result !== 1) throw new Error(' Expected product(1) to be 1. Recieved: ' + result);
+
 
   // --------------------------------------------------
   // Test Case 5
   // --------------------------------------------------
   // When invoked with no numbers, it should return 0.
+  var result = product ( );
+  if (result !== 0) throw new Error(' Expected product ( ) to be 0 . Recieved: ' + result);
+  // --------------------------------------------------
+  // Test Case 5
+  // --------------------------------------------------
+  // When invoked a number with a string , it should return sum.
+  var result = product ("1", "1");
+  if (result !== 1) throw new Error(' Expected product ("1" , "1" ) to be 1 . Recieved: ' + result);
+
 
   console.log('All tests passed successfully.');
 
